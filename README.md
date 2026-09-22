@@ -1,1 +1,0 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=200&section=header&text=Trabalho%20Em%20C&fontSize=42&fontColor=00ff9d&animation=fadeIn&fontAlignY=38&desc=Prof%20Dacio%20%Machado&descAlignY=58&descSize=17" width="100%"/>

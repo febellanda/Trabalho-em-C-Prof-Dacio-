@@ -1,58 +1,48 @@
-# Calculadora de Consumo — Km/L
-Sistema em linguagem C para cadastro de veículos, registro de abastecimentos e cálculo do consumo médio (quilômetros por litro), desenvolvido como trabalho prático da disciplina Linguagem e Técnicas de Programação.
+# Calculadora de Consumo (Km/L)
 
-# 1. Descrição do Problema
-Motoristas costumam ter dificuldade em acompanhar de forma organizada quanto de combustível seus veículos consomem ao longo do tempo, o que dificulta decisões como comparar o rendimento entre veículos, identificar quedas de desempenho (possível sinal de manutenção necessária) e planejar gastos com combustível.
+## 1. Descrição do Sistema
 
-# 2. Solução Proposta
-Um sistema de linha de comando que permite:
-- Cadastrar veículos (placa, modelo, ano).
-- Registrar abastecimentos (litros, valor pago, km rodado desde o último abastecimento) associados a um veículo.
-- Calcular automaticamente o consumo (km/l) de cada abastecimento e a média histórica por veículo.
-- Buscar o histórico de abastecimentos de um veículo pela placa.
-- Persistir todos os dados em arquivos, para que fiquem disponíveis entre execuções.
+O projeto consiste em um sistema para controle de consumo de combustível de veículos, desenvolvido em linguagem C. O sistema permitirá o cadastro de veículos e o registro dos abastecimentos realizados por cada um, calculando automaticamente o consumo (km/l) de cada abastecimento e o consumo médio do veículo. O programa utilizará arquivos de texto para persistência de dados, garantindo que as informações de veículos e abastecimentos não sejam perdidas ao fechar a aplicação.
 
-# 3. Funcionalidades
-| Funcionalidade | Descrição |
-|---|---|
-| Cadastrar veículo | Insere um novo veículo (placa, modelo, ano) no arquivo de veículos. |
-| Listar veículos | Exibe todos os veículos cadastrados. |
-| Registrar abastecimento | Associa litros, valor e km rodado a uma placa existente e calcula o km/l do abastecimento. |
-| Consultar histórico | Busca por placa e lista todos os abastecimentos e o consumo médio do veículo. |
-| Relatório geral | Exibe o veículo mais econômico e o menos econômico da frota. |
-| Remover veículo | Remove um veículo e seus registros associados. |
+O foco principal é resolver a problemática do controle manual (ou inexistente) do consumo de combustível, automatizando o cálculo do rendimento e permitindo consultar rapidamente o histórico de um veículo pela placa.
 
-# 4. Informações Armazenadas
-Veículo:
-- Placa
-- Modelo
-- Ano
+## 2. Fluxo de Utilização Esperado para o Sistema
 
-Abastecimento:
-- Placa do veículo
-- Litros abastecidos
-- Km rodado
-- Consumo calculado (km/l)
+1. Ao iniciar o programa, o usuário visualizará um menu principal com as opções:
+   * `1. Cadastrar Veículo`
+   * `2. Listar Veículos`
+   * `3. Registrar Abastecimento`
+   * `4. Consultar Histórico por Placa`
+   * `0. Sair`
+2. Caso o usuário escolha `1`, o sistema solicitará Placa, Modelo e Ano. Em seguida, gravará esses dados no arquivo `veiculos.txt`.
+3. Se escolher `3`, o sistema pedirá a placa do veículo. O programa verificará se a placa já está cadastrada e, em caso positivo, solicitará os litros abastecidos e o km rodado, calculará o consumo (km/l) e registrará o abastecimento no arquivo `abastecimentos.txt`.
+4. Se escolher `4`, o sistema pedirá a placa do veículo e mostrará todos os abastecimentos já registrados para ela, junto com o consumo médio calculado.
+5. As operações de erro (ex: veículo não encontrado, arquivo que não pôde ser aberto, busca sem resultado) exibirão mensagens claras e retornarão o usuário ao menu principal.
 
-# 5. Organização dos Arquivos do Projeto
-projeto/\
-├── main.c              # Menu principal e fluxo do programa\
-├── config.h             # Constantes usadas no projeto\
-├── veiculo.h             # Funções relacionadas a veículo\
-├── veiculo.c\
-├── abastecimento.h       # Funções relacionadas a abastecimento\
-├── abastecimento.c\
-├── dados/\
-│   ├── veiculos.dat\
-│   └── abastecimentos.dat\
-└── README.md\
+## 3. Fluxograma da Lógica do Sistema
 
-# 6. Salvamento em Arquivo
-- Ao abrir o programa, os dados salvos anteriormente são carregados dos arquivos veiculos.dat e abastecimentos.dat.
-- Ao sair do programa, tudo é salvo novamente nesses arquivos.
-- Se o arquivo não puder ser aberto ou criado, o programa avisa o usuário com uma mensagem de erro.
-- Se o usuário buscar uma placa que não existe, o programa também avisa que não encontrou nada.
 
-# 7. Como Calcular o Consumo
-consumo (km/l) = km rodado / litros abastecidos
 
+
+## 4. Estrutura de Dados
+
+O sistema utilizará as seguintes estruturas heterogêneas para gerenciar as informações:
+
+```c
+// Estrutura para armazenamento dos Veículos
+struct Veiculo {
+    char placa[8];
+    char modelo[50];
+    int ano;
+};
+
+// Estrutura para armazenamento dos Abastecimentos
+struct Abastecimento {
+    char placa[8];      // placa do veiculo que abasteceu
+    float litros;        // litros abastecidos
+    float km;            // km rodado desde o ultimo abastecimento
+    float consumo;        // km / litros, calculado pelo programa
+};
+```
+
+Cada veículo cadastrado é gravado como uma linha no arquivo `veiculos.txt`, e cada abastecimento como uma linha no arquivo `abastecimentos.txt`, relacionado ao veículo através do campo `placa`.

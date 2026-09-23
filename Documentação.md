@@ -13,3 +13,46 @@ Um sistema de linha de comando que permite:
 - Persistir todos os dados em arquivos, para que fiquem disponíveis entre execuções.
 
 # 3. Funcionalidades
+| Funcionalidade | Descrição |
+|---|---|
+| Cadastrar veículo | Insere um novo veículo (placa, modelo, ano) no arquivo de veículos. |
+| Listar veículos | Exibe todos os veículos cadastrados. |
+| Registrar abastecimento | Associa litros, valor e km rodado a uma placa existente e calcula o km/l do abastecimento. |
+| Consultar histórico | Busca por placa e lista todos os abastecimentos e o consumo médio do veículo. |
+| Relatório geral | Exibe o veículo mais econômico e o menos econômico da frota. |
+| Remover veículo | Remove um veículo e seus registros associados. |
+
+# 4. Informações Armazenadas
+Veículo:
+- Placa
+- Modelo
+- Ano
+
+Abastecimento:
+- Placa do veículo
+- Litros abastecidos
+- Km rodado
+- Consumo calculado (km/l)
+
+# 5. Organização dos Arquivos do Projeto
+projeto/\
+├── main.c              # Menu principal e fluxo do programa\
+├── config.h             # Constantes usadas no projeto\
+├── veiculo.h             # Funções relacionadas a veículo\
+├── veiculo.c\
+├── abastecimento.h       # Funções relacionadas a abastecimento\
+├── abastecimento.c\
+├── dados/\
+│   ├── veiculos.dat\
+│   └── abastecimentos.dat\
+└── README.md\
+
+# 6. Salvamento em Arquivo
+- Ao abrir o programa, os dados salvos anteriormente são carregados dos arquivos veiculos.dat e abastecimentos.dat.
+- Ao sair do programa, tudo é salvo novamente nesses arquivos.
+- Se o arquivo não puder ser aberto ou criado, o programa avisa o usuário com uma mensagem de erro.
+- Se o usuário buscar uma placa que não existe, o programa também avisa que não encontrou nada.
+
+# 7. Como Calcular o Consumo
+consumo (km/l) = km rodado / litros abastecidos
+

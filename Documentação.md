@@ -45,3 +45,10 @@ struct Abastecimento {
 ```
 
 Cada veículo cadastrado é gravado como uma linha no arquivo `veiculos.txt`, e cada abastecimento como uma linha no arquivo `abastecimentos.txt`, relacionado ao veículo através do campo `placa`.
+
+##5. Nome dos Integrantes e RA
+-Daniel Vieira: 26012119-2
+-Davi Emmanuel: 260015622
+-Breno: 260122662
+-Bernardo Pedriali Redmerski - 26003772-2
+-Felipe Rodrigues Bellanda - 26002801-2

@@ -49,6 +49,6 @@ Cada veículo cadastrado é gravado como uma linha no arquivo `veiculos.txt`, e 
 ## 5. Nome dos Integrantes e RA
 * Daniel Vieira - 26012119-2
 * Davi Emmanuel - 26001562-2
-* Breno - 26012266-2
+* Breno Fernandes - 26012266-2
 * Bernardo Pedriali Redmerski - 26003772-2
 * Felipe Rodrigues Bellanda - 26002801-2

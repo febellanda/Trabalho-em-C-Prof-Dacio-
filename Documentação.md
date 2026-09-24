@@ -21,8 +21,7 @@ O foco principal é resolver a problemática do controle manual (ou inexistente)
 
 ## 3. Fluxograma da Lógica do Sistema
 
-
-
+<img width="1558" height="1246" alt="FluxogramaDacio" src="https://github.com/user-attachments/assets/9905c419-8bed-4b76-b4d7-448154df46f3" />
 
 ## 4. Estrutura de Dados
 

@@ -64,9 +64,10 @@ void cadastroVeiculo(){
 void listarVeiculo(){
     int i;
     
+    printf("\n================================\n");
 	for(i=0; i<total_veiculos; i++){
-		printf("Veiculo: \n%s \n%s", veiculos[i].marca, veiculos[i].modelo, veiculos[i].placa, veiculos[i].ano);
-		printf("\n=======================\n");
+		printf("Veiculo: \n%s %s \n%s \n%d", veiculos[i].marca, veiculos[i].modelo, veiculos[i].placa, veiculos[i].ano);
+		printf("\n================================\n");
 	}
 }
 
@@ -88,7 +89,7 @@ void registrarAbastecimento(){
 				
 			consumo = (KM_rod / litros);
 					
-			printf("O consumo médio do seu veiculo é de: %.2f", consumo); 
+			printf("O consumo médio do seu veiculo é de: %.2f Km/L\n", consumo); 
 		} else {
 			printf("Placa incorreta, faca o cadastro do veiculo! \n");
 			cadastroVeiculo();

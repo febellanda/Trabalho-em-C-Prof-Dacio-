@@ -48,6 +48,18 @@ void cadastroVeiculo(){
 
     total_veiculos++;
 
+	printf("\n================================\n");
+    printf("       CADASTRO CONCLUIDO!\n");
+    printf("================================\n");
+
+    printf("\n===== DADOS DO PROJETO =====\n");
+    printf("Marca do veiculo: %s\n", veiculos[total_veiculos - 1].marca);
+    printf("Modelo: %s\n", veiculos[total_veiculos - 1].modelo);
+    printf("Placa: %s\n", veiculos[total_veiculos - 1].placa);
+    printf("ano: %d\n", veiculos[total_veiculos - 1].ano);
+
+    printf("\nVeiculo cadastrado com sucesso!\n");
+
     printf("\nVeiculo cadastrado com sucesso!\n");
 
 }

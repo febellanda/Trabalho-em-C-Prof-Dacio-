@@ -59,9 +59,6 @@ void cadastroVeiculo(){
     printf("ano: %d\n", veiculos[total_veiculos - 1].ano);
 
     printf("\nVeiculo cadastrado com sucesso!\n");
-
-    printf("\nVeiculo cadastrado com sucesso!\n");
-
 }
 
 void listarVeiculo(){

@@ -53,13 +53,11 @@ void cadastroVeiculo(){
 }
 
 void listarVeiculo(){
-	char marca[100];
-    char modelo[100];
-    char placa[20];
-    int ano, i;
+    int i;
     
 	for(i=0; i<total_veiculos; i++){
-		printf("Veiculo: \n%s \n%s", marca[i], modelo[i]);
+		printf("Veiculo: \n%s \n%s", veiculos[i].marca, veiculos[i].modelo, veiculos[i].placa, veiculos[i].ano);
+		printf("\n=======================\n");
 	}
 }
 

@@ -59,10 +59,32 @@ void listarVeiculo(){
     int ano, i;
     
 	for(i=0; i<total_veiculos; i++){
-		printf("Veiculo: \n%c \n%c", marca[i], modelo[i]);
-	} 
+		printf("Veiculo: \n%s \n%s", marca[i], modelo[i]);
+	}
 }
 
+void registrarAbastecimento(){
+    float litros, KM_rod, consumo;
+	char placa3[20];
+	int i;
+	
+	printf("Informe a placa do veiculo: \n");
+	scanf("%d", &placa3);
+
+	for(i=0; i<total_veiculos; i++){
+		if (strcmp(placa3, veiculos[i].placa) == 0) {
+			printf("Informe a quantidade de litros abastecidos: \n");
+			scanf("%f", &litros);
+				
+			printf("Informe a quantidade de KM rodados: \n");
+			scanf("%d", &KM_rod);
+				
+			consumo = (KM_rod / litros);
+					
+			printf("O consumo médio do seu veiculo é de: %.2f", consumo); 
+		}
+	}
+}
 int main() {
     int total_veiculos = 0;
     int total_abastecimentos = 0;
@@ -73,7 +95,7 @@ int main() {
     char placa[20];
 
     int ano;
-    float  litros, KM_rod, placa3, consumo;
+
 
     do {
 
@@ -93,24 +115,15 @@ int main() {
 
         if (opcao == 1) {
 			cadastroVeiculo();
-        } else if(opcao == 2) {
+        } else if (opcao == 2) {
         	listarVeiculo();
-			
 		} else if (opcao == 3) {
-			printf("Informe a placa do veiculo: \n");
-			scanf("%d", &placa3);
-			
-			if (strcmp(placa3, veiculos[i].placa) == 0) {
-				printf("Informe a quantidade de litros abastecidos: \n");
-				scanf("%f", &litros);
-				
-				printf("Informe a quantidade de KM rodados: \n");
-				scanf("%d", &KM_rod);
-				
-				consumo = (KM_rod / litros);
-				
-				printf("O consumo médio do seu veiculo é de: %.2f", consumo); 
-			} else {
+			registrarAbastecimento();
+		} else if (opcao == 4) {
+			printf("4");
+		} else {
+			printf("Opcao invalida!");
+		}
 
     } while (opcao != 0);
 

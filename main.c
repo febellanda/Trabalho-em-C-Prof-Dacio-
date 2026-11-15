@@ -73,7 +73,7 @@ int main() {
     char placa[20];
 
     int ano;
-    float consumo;
+    float  litros, KM_rod, placa3, consumo;
 
     do {
 
@@ -100,7 +100,7 @@ int main() {
 			printf("Informe a placa do veiculo: \n");
 			scanf("%d", &placa3);
 			
-			if (placa3 == placa[20]) {
+			if (strcmp(placa3, veiculos[i].placa) == 0) {
 				printf("Informe a quantidade de litros abastecidos: \n");
 				scanf("%f", &litros);
 				

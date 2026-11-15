@@ -95,7 +95,22 @@ int main() {
 			cadastroVeiculo();
         } else if(opcao == 2) {
         	listarVeiculo();
-		}
+			
+		} else if (opcao == 3) {
+			printf("Informe a placa do veiculo: \n");
+			scanf("%d", &placa3);
+			
+			if (placa3 == placa[20]) {
+				printf("Informe a quantidade de litros abastecidos: \n");
+				scanf("%f", &litros);
+				
+				printf("Informe a quantidade de KM rodados: \n");
+				scanf("%d", &KM_rod);
+				
+				consumo = (KM_rod / litros);
+				
+				printf("O consumo médio do seu veiculo é de: %.2f", consumo); 
+			} else {
 
     } while (opcao != 0);
 

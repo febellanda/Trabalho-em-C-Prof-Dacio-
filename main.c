@@ -86,6 +86,7 @@ void registrarAbastecimento(){
 		}
 	}
 }
+
 int main() {
     int total_abastecimentos = 0;
     int opcao;

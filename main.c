@@ -7,7 +7,6 @@ struct Veiculo {
     char marca[100];
     char modelo[100];
     int ano;
-    float consumo;
 };
 
 struct Abastecimento {
@@ -17,11 +16,54 @@ struct Abastecimento {
     float consumo;
 };
 
+struct Veiculo veiculos[100];
+struct Abastecimento abastecimentos[100];
+int total_veiculos = 0; 
+
+void cadastroVeiculo(){
+	char marca[100];
+    char modelo[100];
+    char placa[20];
+    int ano;
+	
+	printf("======= CADASTRO DO VEICULO ========\n");
+
+    printf("\nInforme a marca do veiculo: \n");
+    scanf(" %99[^\n]", marca);
+
+    printf("Informe o modelo: \n");
+    scanf(" %99[^\n]", modelo);
+
+    printf("Informe a placa do Veiculo: \n");
+    scanf(" %19s", placa);
+
+    printf("Informe o ano do veiculo: ");
+    scanf("%d", &ano);
+
+    strcpy(veiculos[total_veiculos].marca, marca);
+    strcpy(veiculos[total_veiculos].modelo, modelo);
+    strcpy(veiculos[total_veiculos].placa, placa);
+
+    veiculos[total_veiculos].ano = ano;
+
+    total_veiculos++;
+
+    printf("\nVeiculo cadastrado com sucesso!\n");
+
+}
+
+void listarVeiculo(){
+	char marca[100];
+    char modelo[100];
+    char placa[20];
+    int ano, i;
+    
+	for(i=0; i<total_veiculos; i++){
+		printf("Veiculo: \n%c \n%c", marca[i], modelo[i]);
+	} 
+}
+
 int main() {
-
-    struct Veiculo veiculos[100];
-    struct Abastecimento abastecimentos[100];
-
     int total_veiculos = 0;
     int total_abastecimentos = 0;
     int opcao;
@@ -50,36 +92,10 @@ int main() {
         scanf("%d", &opcao);
 
         if (opcao == 1) {
-
-            printf("======= CADASTRO DO VEICULO ========\n");
-
-            printf("\nInforme a marca do veiculo: \n");
-            scanf(" %99[^\n]", marca);
-
-            printf("Informe o modelo: \n");
-            scanf(" %99[^\n]", modelo);
-
-            printf("Informe a placa do Veiculo: \n");
-            scanf(" %19s", placa);
-
-            printf("Informe o ano do veiculo: ");
-            scanf("%d", &ano);
-
-            printf("Informe o consumo medio do veiculo: \n");
-            scanf("%f", &consumo);
-
-            strcpy(veiculos[total_veiculos].marca, marca);
-            strcpy(veiculos[total_veiculos].modelo, modelo);
-            strcpy(veiculos[total_veiculos].placa, placa);
-
-            veiculos[total_veiculos].ano = ano;
-            veiculos[total_veiculos].consumo = consumo;
-
-            total_veiculos++;
-
-            printf("\nVeiculo cadastrado com sucesso!\n");
-
-        }
+			cadastroVeiculo();
+        } else if(opcao == 2) {
+        	listarVeiculo();
+		}
 
     } while (opcao != 0);
 

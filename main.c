@@ -53,11 +53,13 @@ void cadastroVeiculo(){
 }
 
 void listarVeiculo(){
-    int i;
+	char marca[100];
+    char modelo[100];
+    char placa[20];
+    int ano, i;
     
 	for(i=0; i<total_veiculos; i++){
-		printf("Veiculo: \n%s \n%s", veiculos[i].marca, veiculos[i].modelo, veiculos[i].placa, veiculos[i].ano);
-		printf("\n=======================\n");
+		printf("Veiculo: \n%s \n%s", marca[i], modelo[i]);
 	}
 }
 
@@ -67,7 +69,7 @@ void registrarAbastecimento(){
 	int i;
 	
 	printf("Informe a placa do veiculo: \n");
-	scanf("%d", &placa3);
+	scanf("%19s", &placa3);
 
 	for(i=0; i<total_veiculos; i++){
 		if (strcmp(placa3, veiculos[i].placa) == 0) {
@@ -75,16 +77,18 @@ void registrarAbastecimento(){
 			scanf("%f", &litros);
 				
 			printf("Informe a quantidade de KM rodados: \n");
-			scanf("%d", &KM_rod);
+			scanf("%f", &KM_rod);
 				
 			consumo = (KM_rod / litros);
 					
 			printf("O consumo médio do seu veiculo é de: %.2f", consumo); 
+		} else {
+			printf("Placa incorreta, faca o cadastro do veiculo! \n");
+			cadastroVeiculo();
 		}
 	}
 }
 int main() {
-    int total_veiculos = 0;
     int total_abastecimentos = 0;
     int opcao;
 
@@ -93,6 +97,7 @@ int main() {
     char placa[20];
 
     int ano;
+
 
     do {
 

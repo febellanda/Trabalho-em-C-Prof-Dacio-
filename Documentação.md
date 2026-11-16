@@ -2,7 +2,7 @@
 
 ## 1. Descrição do Sistema
 
-O projeto consiste em um sistema para controle de consumo de combustível de veículos, desenvolvido em linguagem C. O sistema permitirá o cadastro de veículos e o registro dos abastecimentos realizados por cada um, calculando automaticamente o consumo (km/l) de cada abastecimento e o consumo médio do veículo. O programa utilizará arquivos de texto para persistência de dados, garantindo que as informações de veículos e abastecimentos não sejam perdidas ao fechar a aplicação.
+O projeto consiste em um sistema para controle de consumo de combustível de veículos, desenvolvido em linguagem C. O sistema permitirá o cadastro de veículos e o registro dos abastecimentos realizados por cada um, calculando automaticamente o consumo (km/l) de cada abastecimento  o consumo médio do veículo e um relatório geral. O programa utilizará arquivos de texto para persistência de dados, garantindo que as informações de veículos e abastecimentos não sejam perdidas ao fechar a aplicação.
 
 O foco principal é resolver a problemática do controle manual (ou inexistente) do consumo de combustível, automatizando o cálculo do rendimento e permitindo consultar rapidamente o histórico de um veículo pela placa.
 
@@ -13,6 +13,7 @@ O foco principal é resolver a problemática do controle manual (ou inexistente)
    * `2. Listar Veículos`
    * `3. Registrar Abastecimento`
    * `4. Consultar Histórico por Placa`
+   * `5. relatorio geral da Frota`
    * `0. Sair`
 2. Caso o usuário escolha `1`, o sistema solicitará Placa, Modelo e Ano. Em seguida, gravará esses dados no arquivo `veiculos.txt`.
 3. Se escolher `3`, o sistema pedirá a placa do veículo. O programa verificará se a placa já está cadastrada e, em caso positivo, solicitará os litros abastecidos e o km rodado, calculará o consumo (km/l) e registrará o abastecimento no arquivo `abastecimentos.txt`.

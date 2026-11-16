@@ -19,6 +19,7 @@ struct Abastecimento {
 struct Veiculo veiculos[100];
 struct Abastecimento abastecimentos[100];
 int total_veiculos = 0; 
+int total_abastecimentos = 0;
 
 void cadastroVeiculo(){
 	char marca[100];
@@ -88,6 +89,12 @@ void registrarAbastecimento(){
 			scanf("%f", &KM_rod);
 				
 			consumo = (KM_rod / litros);
+
+			strcpy(abastecimentos[total_abastecimentos].placa, placa3);
+			abastecimentos[total_abastecimentos].litros = litros;
+			abastecimentos[total_abastecimentos].km = KM_rod;
+			abastecimentos[total_abastecimentos].consumo = consumo;
+			total_abastecimentos++;
 					
 			printf("O consumo médio do seu veiculo é de: %.2f Km/L\n", consumo); 
 		} else {
@@ -97,8 +104,37 @@ void registrarAbastecimento(){
 	}
 }
 
+void consultarHistorico(){
+    char placaBusca[20];
+    int i;
+    int qtdEncontrada = 0;
+    float somaConsumo = 0;
+
+    printf("Informe a placa do veiculo: \n");
+    scanf(" %19s", placaBusca);
+
+    for(i=0; i<total_abastecimentos; i++){
+        if (strcmp(placaBusca, abastecimentos[i].placa) == 0) {
+            printf("\n================================\n");
+            printf("Litros: %.2f\n", abastecimentos[i].litros);
+            printf("KM rodados: %.2f\n", abastecimentos[i].km);
+            printf("Consumo: %.2f Km/L\n", abastecimentos[i].consumo);
+
+            somaConsumo = somaConsumo + abastecimentos[i].consumo;
+            qtdEncontrada++;
+        }
+    }
+
+    if (qtdEncontrada > 0) {
+        printf("\n================================\n");
+        printf("Consumo medio do veiculo: %.2f Km/L\n", somaConsumo / qtdEncontrada);
+        printf("================================\n");
+    } else {
+        printf("Nenhum abastecimento encontrado para esta placa!\n");
+    }
+}
+
 int main() {
-    int total_abastecimentos = 0;
     int opcao;
 
     char marca[100];
@@ -131,7 +167,7 @@ int main() {
 		} else if (opcao == 3) {
 			registrarAbastecimento();
 		} else if (opcao == 4) {
-			printf("4");
+			consultarHistorico();
 		} else {
 			printf("Opcao invalida!");
 		}

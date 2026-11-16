@@ -17,7 +17,8 @@ O foco principal é resolver a problemática do controle manual (ou inexistente)
    * `0. Sair`
 2. Caso o usuário escolha `1`, o sistema solicitará Placa, Modelo e Ano. Em seguida, gravará esses dados no arquivo `veiculos.txt`.
 3. Se escolher `3`, o sistema pedirá a placa do veículo. O programa verificará se a placa já está cadastrada e, em caso positivo, solicitará os litros abastecidos e o km rodado, calculará o consumo (km/l) e registrará o abastecimento no arquivo `abastecimentos.txt`.
-4. Se escolher `4`, o sistema pedirá a placa do veículo e mostrará todos os abastecimentos já registrados para ela, junto com o consumo médio calculado.
+5. Se escolher `4`, o sistema pedirá a placa do veículo e mostrará todos os abastecimentos já registrados para ela, junto com o consumo médio calculado.
+6. Se escolher `5`, o sistema processará todos os dados acumulados da frota, exibindo o total de veículos e abastecimentos, a quilometragem total, o combustível gasto, o consumo médio geral e indicando o melhor e o pior desempenho de consumo entre os veículos cadastrados.
 5. As operações de erro (ex: veículo não encontrado, arquivo que não pôde ser aberto, busca sem resultado) exibirão mensagens claras e retornarão o usuário ao menu principal.
 
 ## 3. Fluxograma da Lógica do Sistema

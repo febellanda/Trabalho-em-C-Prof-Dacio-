@@ -133,7 +133,45 @@ void consultarHistorico(){
         printf("Nenhum abastecimento encontrado para esta placa!\n");
     }
 }
+void relatorioGeral() {
+    int i;
+    float somaLitros = 0, somaKm = 0, mediaGeral = 0;
+    int indiceMelhor = 0, indicePior = 0;
 
+    printf("\n======= RELATORIO GERAL DA FROTA =======\n");
+    printf("Total de veiculos cadastrados: %d\n", total_veiculos);
+    printf("Total de abastecimentos registrados: %d\n", total_abastecimentos);
+
+    if (total_abastecimentos == 0) {
+        printf("\nNenhum abastecimento registrado ainda para calcular medias.\n");
+        printf("========================================\n");
+        return;
+    }
+
+    for (i = 0; i < total_abastecimentos; i++) {
+        somaLitros += abastecimentos[i].litros;
+        somaKm += abastecimentos[i].km;
+
+        if (abastecimentos[i].consumo > abastecimentos[indiceMelhor].consumo) {
+            indiceMelhor = i;
+        }
+        if (abastecimentos[i].consumo < abastecimentos[indicePior].consumo) {
+            indicePior = i;
+        }
+    }
+
+    mediaGeral = somaKm / somaLitros;
+
+    printf("Total de KM rodados: %.2f Km\n", somaKm);
+    printf("Total de combustivel gasto: %.2f Litros\n", somaLitros);
+    printf("Consumo medio geral: %.2f Km/L\n", mediaGeral);
+    printf("----------------------------------------\n");
+    printf("Melhor consumo: Placa %s (%.2f Km/L)\n", 
+           abastecimentos[indiceMelhor].placa, abastecimentos[indiceMelhor].consumo);
+    printf("Pior consumo:   Placa %s (%.2f Km/L)\n", 
+           abastecimentos[indicePior].placa, abastecimentos[indicePior].consumo);
+    printf("========================================\n");
+}
 int main() {
     int opcao;
 
@@ -154,6 +192,7 @@ int main() {
         printf("2 - Listar Veiculos\n");
         printf("3 - Registrar Abastecimento\n");
         printf("4 - Consultar Historico por Placa\n");
+		printf("5 - relatorio geral da Frota\n"); 
         printf("0 - Sair\n");
 
         printf("========================================\n");
@@ -168,11 +207,15 @@ int main() {
 			registrarAbastecimento();
 		} else if (opcao == 4) {
 			consultarHistorico();
+		} else if (opcao == 5){
+		    relatorioGeral();
+		} else if (opcao == 0 ){
+			printf("Encerrando o sistema...\n")
 		} else {
 			printf("Opcao invalida!");
 		}
 
-    } while (opcao != 0);
+	}while (opcao != 0);
 
     return 0;
 

@@ -175,13 +175,6 @@ void relatorioGeral() {
 int main() {
     int opcao;
 
-    char marca[100];
-    char modelo[100];
-    char placa[20];
-
-    int ano;
-
-
     do {
 
         printf("\n========================================\n");

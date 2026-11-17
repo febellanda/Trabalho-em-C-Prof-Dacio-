@@ -210,7 +210,7 @@ int main() {
 		} else if (opcao == 5){
 		    relatorioGeral();
 		} else if (opcao == 0 ){
-			printf("Encerrando o sistema...\n")
+			printf("Encerrando o sistema...\n");
 		} else {
 			printf("Opcao invalida!");
 		}

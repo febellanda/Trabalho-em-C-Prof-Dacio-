@@ -76,14 +76,19 @@ void listarVeiculo(){
 
 void registrarAbastecimento(){
     float litros, KM_rod, consumo;
+    float valorLitro, valorTotal;
 	char placa3[20];
 	int i;
+	int encontrado = 0;
 	
 	printf("Informe a placa do veiculo: \n");
-	scanf("%19s", &placa3);
+	scanf("%19s", placa3);
 
 	for(i=0; i<total_veiculos; i++){
 		if (strcmp(placa3, veiculos[i].placa) == 0) {
+			
+			encontrado = 1;
+
 			printf("Informe a quantidade de litros abastecidos: \n");
 			scanf("%f", &litros);
 				
@@ -92,22 +97,31 @@ void registrarAbastecimento(){
 
 			printf("Informe o valor do litro do combustivél: \n");
 			scanf("%f", &valorLitro);
-				
+		
+		
+			valorTotal = (litros * valorLitro);
 			consumo = (KM_rod / litros);
 
 			strcpy(abastecimentos[total_abastecimentos].placa, placa3);
 			abastecimentos[total_abastecimentos].litros = litros;
 			abastecimentos[total_abastecimentos].km = KM_rod;
 			abastecimentos[total_abastecimentos].consumo = consumo;
+			abastecimentos[total_abastecimentos].valorLitro = valorLitro;
+			abastecimentos[total_abastecimentos].valorTotal = valorTotal;
 			total_abastecimentos++;
 					
 			printf("O consumo médio do seu veiculo é de: %.2f Km/L\n", consumo); 
-		} else {
-			printf("Placa incorreta, faca o cadastro do veiculo! \n");
-			cadastroVeiculo();
+			printf("O valor gasto durante o trajeto e de: %.2f \n", valorTotal );
+			
+			break;
+		} 
+		} 
+		if(encontrado == 0){
+    printf("Placa incorreta! Faca o cadastro do veiculo!\n");
+    cadastroVeiculo();
 		}
+		
 	}
-}
 
 void consultarHistorico(){
     char placaBusca[20];
@@ -124,7 +138,9 @@ void consultarHistorico(){
             printf("Litros: %.2f\n", abastecimentos[i].litros);
             printf("KM rodados: %.2f\n", abastecimentos[i].km);
             printf("Consumo: %.2f Km/L\n", abastecimentos[i].consumo);
-
+            printf("Valor do litro: R$ %.2f\n", abastecimentos[i].valorLitro);
+			printf("Valor total: R$ %.2f\n", abastecimentos[i].valorTotal);
+			
             somaConsumo = somaConsumo + abastecimentos[i].consumo;
             qtdEncontrada++;
         }

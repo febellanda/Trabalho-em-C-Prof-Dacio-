@@ -59,7 +59,7 @@ void cadastroVeiculo(){
     printf("Marca do veiculo: %s\n", veiculos[total_veiculos - 1].marca);
     printf("Modelo: %s\n", veiculos[total_veiculos - 1].modelo);
     printf("Placa: %s\n", veiculos[total_veiculos - 1].placa);
-    printf("ano: %d\n", veiculos[total_veiculos - 1].ano);
+    printf("ano: %d \n", veiculos[total_veiculos - 1].ano);
 
     printf("\nVeiculo cadastrado com sucesso!\n");
 }
@@ -67,7 +67,7 @@ void cadastroVeiculo(){
 void listarVeiculo(){
     int i;
     
-    printf("\n================================\n");
+    printf("\n========VEICULOS CADASTRADOS=======\n");
 	for(i=0; i<total_veiculos; i++){
 		printf("Veiculo: \n%s %s \n%s \n%d", veiculos[i].marca, veiculos[i].modelo, veiculos[i].placa, veiculos[i].ano);
 		printf("\n================================\n");
@@ -117,8 +117,9 @@ void registrarAbastecimento(){
 		} 
 		} 
 		if(encontrado == 0){
-    printf("Placa incorreta! Faca o cadastro do veiculo!\n");
-    cadastroVeiculo();
+   if(encontrado == 0){
+    printf("Placa nao encontrada! Cadastre o veiculo pelo menu principal.\n");
+}
 		}
 		
 	}

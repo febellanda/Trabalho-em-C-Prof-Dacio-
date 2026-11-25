@@ -14,6 +14,8 @@ struct Abastecimento {
     float litros;
     float km;
     float consumo;
+	float valorLitro;
+    float valorTotal;
 };
 
 struct Veiculo veiculos[100];
@@ -87,6 +89,9 @@ void registrarAbastecimento(){
 				
 			printf("Informe a quantidade de KM rodados: \n");
 			scanf("%f", &KM_rod);
+
+			printf("Informe o valor do litro do combustivél: \n");
+			scanf("%f", &valorLitro);
 				
 			consumo = (KM_rod / litros);
 

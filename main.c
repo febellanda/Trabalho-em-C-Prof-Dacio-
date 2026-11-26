@@ -141,14 +141,14 @@ void consultarHistorico(){
             printf("Valor do litro: R$ %.2f\n", abastecimentos[i].valorLitro);
 			printf("Valor total: R$ %.2f\n", abastecimentos[i].valorTotal);
 			
-            somaConsumo = somaConsumo + abastecimentos[i].consumo;
+            somaConsumo = somaConsumo + abastecimentos[i].consumo; // soma todos os consumos registrados pra calculo da media geral
             qtdEncontrada++;
         }
     }
 
     if (qtdEncontrada > 0) {
         printf("\n================================\n");
-        printf("Consumo medio do veiculo: %.2f Km/L\n", somaConsumo / qtdEncontrada);
+        printf("Consumo medio do veiculo: %.2f Km/L\n", somaConsumo / qtdEncontrada); // media geral dos consumos registrados no veiculo
         printf("================================\n");
     } else {
         printf("Nenhum abastecimento encontrado para esta placa!\n");

@@ -68,7 +68,7 @@ void listarVeiculo(){
     int i;
     
     printf("\n========VEICULOS CADASTRADOS=======\n");
-	for(i=0; i<total_veiculos; i++){
+	for(i=0; i<total_veiculos; i++){ // Laco de repeticao para iterar sobre os veiculos cadastrados
 		printf("Veiculo: \n%s %s \n%s \n%d", veiculos[i].marca, veiculos[i].modelo, veiculos[i].placa, veiculos[i].ano);
 		printf("\n================================\n");
 	}
@@ -213,6 +213,7 @@ int main() {
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
 
+		// Menu de selecao com estrutura condicional
         if (opcao == 1) {
 			cadastroVeiculo();
         } else if (opcao == 2) {

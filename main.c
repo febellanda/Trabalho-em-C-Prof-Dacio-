@@ -85,9 +85,9 @@ void registrarAbastecimento(){
 	scanf("%19s", placa3);
 
 	for(i=0; i<total_veiculos; i++){
-		if (strcmp(placa3, veiculos[i].placa) == 0) {
+		if (strcmp(placa3, veiculos[i].placa) == 0) { //Compara a placa digitada pelo user com a placa cadastrada
 			
-			encontrado = 1;
+			encontrado = 1; // casso a placa seja encontrada ele fica com o valor positivo de 1
 
 			printf("Informe a quantidade de litros abastecidos: \n");
 			scanf("%f", &litros);
@@ -103,7 +103,7 @@ void registrarAbastecimento(){
 			consumo = (KM_rod / litros);
 
 			strcpy(abastecimentos[total_abastecimentos].placa, placa3);
-			abastecimentos[total_abastecimentos].litros = litros;
+			abastecimentos[total_abastecimentos].litros = litros; // como usamos numeros não precisamos usar Strcpy
 			abastecimentos[total_abastecimentos].km = KM_rod;
 			abastecimentos[total_abastecimentos].consumo = consumo;
 			abastecimentos[total_abastecimentos].valorLitro = valorLitro;
@@ -116,7 +116,7 @@ void registrarAbastecimento(){
 			break;
 		} 
 		} 
-		if(encontrado == 0){
+		if(encontrado == 0){ // Caso a placa não seja encontrada ele pede para o usuario fazer o cadastro
     printf("Placa nao encontrada! Cadastre o veiculo pelo menu principal.\n");
 }
 		}

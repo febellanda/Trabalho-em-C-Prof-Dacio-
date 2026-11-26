@@ -115,13 +115,13 @@ void registrarAbastecimento(){
 			
 			break;
 		} 
-		} 
+	} 
 		if(encontrado == 0){ // Caso a placa não seja encontrada ele pede para o usuario fazer o cadastro
-    printf("Placa nao encontrada! Cadastre o veiculo pelo menu principal.\n");
-}
+    		printf("Placa nao encontrada! Cadastre o veiculo pelo menu principal.\n");
 		}
+}
 		
-	}
+	
 
 void consultarHistorico(){
     char placaBusca[20];

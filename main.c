@@ -117,7 +117,6 @@ void registrarAbastecimento(){
 		} 
 		} 
 		if(encontrado == 0){
-   if(encontrado == 0){
     printf("Placa nao encontrada! Cadastre o veiculo pelo menu principal.\n");
 }
 		}

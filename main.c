@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <string.h> // Adicionamos a String.h para que possamos usar as funções strcpy e strcmp
 
-struct Veiculo {
+struct Veiculo { //Struct é uma estrutura para armazenarmos varias informações dentro de uma mesma variavel
     char placa[20];
     char marca[100];
     char modelo[100];
@@ -18,7 +18,7 @@ struct Abastecimento {
     float valorTotal;
 };
 
-struct Veiculo veiculos[100];
+struct Veiculo veiculos[100]; // Veiculos é o indice da estrutura, e veiculos é o nome da variavel que desejamos usar
 struct Abastecimento abastecimentos[100];
 int total_veiculos = 0; 
 int total_abastecimentos = 0;
@@ -43,20 +43,20 @@ void cadastroVeiculo(){
     printf("Informe o ano do veiculo: ");
     scanf("%d", &ano);
 
-    strcpy(veiculos[total_veiculos].marca, marca);
+    strcpy(veiculos[total_veiculos].marca, marca); // strcpy serve para copiar as informações que o usuario digitiar e salvar a mesma
     strcpy(veiculos[total_veiculos].modelo, modelo);
     strcpy(veiculos[total_veiculos].placa, placa);
 
     veiculos[total_veiculos].ano = ano;
 
-    total_veiculos++;
+    total_veiculos++; // incremento para que sempre o um novo veiculo seja somado
 
 	printf("\n================================\n");
     printf("       CADASTRO CONCLUIDO!\n");
     printf("================================\n");
 
     printf("\n===== DADOS DO PROJETO =====\n");
-    printf("Marca do veiculo: %s\n", veiculos[total_veiculos - 1].marca);
+    printf("Marca do veiculo: %s\n", veiculos[total_veiculos - 1].marca); // total_veiculos - 1] serve para acessarmos a ultima informação salva
     printf("Modelo: %s\n", veiculos[total_veiculos - 1].modelo);
     printf("Placa: %s\n", veiculos[total_veiculos - 1].placa);
     printf("ano: %d \n", veiculos[total_veiculos - 1].ano);

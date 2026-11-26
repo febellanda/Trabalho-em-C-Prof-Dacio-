@@ -153,36 +153,37 @@ void consultarHistorico(){
     } else {
         printf("Nenhum abastecimento encontrado para esta placa!\n");
     }
-}
+}// Funcao responsavel por gerar o relatorio geral e o ranking de consumo da frota
 void relatorioGeral() {
-    int i;
-    float somaLitros = 0, somaKm = 0, mediaGeral = 0;
-    int indiceMelhor = 0, indicePior = 0;
-
+    int i;// Variavel de controle para o laco de repeticao
+    float somaLitros = 0, somaKm = 0, mediaGeral = 0;// Acumuladores de totais e media geral
+    int indiceMelhor = 0, indicePior = 0;// Guardam a posicao do melhor e do pior consumo no vetor
+  // Exibe o cabecalho e os totais gerais cadastrados
     printf("\n======= RELATORIO GERAL DA FROTA =======\n");
     printf("Total de veiculos cadastrados: %d\n", total_veiculos);
     printf("Total de abastecimentos registrados: %d\n", total_abastecimentos);
-
+// Validacao para evitar divisao por zero caso nao exista nenhum abastecimento
     if (total_abastecimentos == 0) {
         printf("\nNenhum abastecimento registrado ainda para calcular medias.\n");
         printf("========================================\n");
-        return;
+        return;// Interrompe a funcao e volta para o menu principal
     }
-
+// Percorre todo o vetor de abastecimentos registrados
     for (i = 0; i < total_abastecimentos; i++) {
         somaLitros += abastecimentos[i].litros;
         somaKm += abastecimentos[i].km;
-
+// Acumula o total de litros gastos e quilometros rodados pela frota
         if (abastecimentos[i].consumo > abastecimentos[indiceMelhor].consumo) {
             indiceMelhor = i;
         }
+		// Compara se o consumo atual e maior que o melhor registrado ate agora
         if (abastecimentos[i].consumo < abastecimentos[indicePior].consumo) {
             indicePior = i;
         }
     }
-
+// Calcula o consumo medio geral dividindo a quilometragem total pelos litros totais
     mediaGeral = somaKm / somaLitros;
-
+// Exibe os totais acumulados e o ranking com as placas de melhor e pior desempenho
     printf("Total de KM rodados: %.2f Km\n", somaKm);
     printf("Total de combustivel gasto: %.2f Litros\n", somaLitros);
     printf("Consumo medio geral: %.2f Km/L\n", mediaGeral);
@@ -206,7 +207,7 @@ int main() {
         printf("2 - Listar Veiculos\n");
         printf("3 - Registrar Abastecimento\n");
         printf("4 - Consultar Historico por Placa\n");
-		printf("5 - relatorio geral da Frota\n"); 
+		printf("5 - relatorio geral da Frota\n"); // Exibe a opcao de relatorio geral no menu
         printf("0 - Sair\n");
 
         printf("========================================\n");
